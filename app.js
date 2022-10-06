@@ -39,6 +39,8 @@ require('./express-sessions')(app)
 // Routes
 // main
 app.use('/', require('./controllers/index'))
+// map
+app.use('/map', require('./controllers/map'))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
