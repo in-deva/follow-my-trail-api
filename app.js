@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const cors = require('cors')
 require('dotenv').config()
 
 // Build the App
@@ -21,6 +22,7 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(cors())
 
 // Database
 mongoose.connect(
