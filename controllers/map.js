@@ -30,9 +30,10 @@ router.get('/koh-phangan/places', async (req, res) => {
 		// 	}
 		// })
 		// console.log('created');
-		let place = await Places.findById('633ea46d07dfe04ee4a669cc') //!!!
+		// make this find by location (location and places joined through objectID)
+		let places = await Places.find({}) //!!!
 		// console.log(users[0].name)
-    res.send(place)
+    res.send(places)
   } catch (err) {
     console.log(err)
 		res.send(err)
