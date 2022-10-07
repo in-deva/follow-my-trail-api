@@ -13,6 +13,8 @@ require('dotenv').config()
 // Build the App
 const app = express()
 
+// !!! replace server as str with read from env file
+
 // Middleware
 app.use(logger('tiny'))
 app.use(express.json())
@@ -22,7 +24,10 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true // sends cookies in the response headers
+}))
 
 // Database
 mongoose.connect(
@@ -41,6 +46,8 @@ require('./express-sessions')(app)
 app.use('/', require('./controllers/index'))
 // map
 app.use('/map', require('./controllers/map'))
+// auth
+app.use('/auth', require('./controllers/auth'))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
