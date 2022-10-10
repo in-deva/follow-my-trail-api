@@ -22,7 +22,6 @@ router.get('/login', async (req, res) => {
 router.post('/login', async (req, res) => {
   // console.log('login post route')
   try {
-		console.log(req.body)
     // find user with email and password match
     let user = await Users.findOne(req.body)
     if (user) {
@@ -30,6 +29,7 @@ router.post('/login', async (req, res) => {
       req.login(user, err => {
         res.send(true)
       })
+			console.log('logged in')
 		} else {res.send(false)}
   } catch (err) {
     console.log(err)
@@ -53,19 +53,22 @@ router.get('/logout', async (req, res) => {
 router.get('/signup', async (req, res) => {
   // console.log('signup get route')
   try {
+		// delete this route?
 		let users = await Users.find({})
 		// console.log(users[0].name)
 		res.send(users[0])
-		// let user = {
-		// 	avatar: '',
-		// 	email: '',
-		// 	name: '',
-		// 	password: ''
-		// }
-		// await Users.create(user)
-		// console.log(user)
-		// let userF = await Users.find(user)
-		// res.send(userF.name)
+  } catch (err) {
+		console.log(err)
+		res.send(err)
+  }
+})
+
+router.post('/signup', async (req, res) => {
+  // console.log('signup post route')
+  try {
+    await Users.create(req.body)
+		console.log('user created')
+		res.send(true)
   } catch (err) {
 		console.log(err)
 		res.send(err)
