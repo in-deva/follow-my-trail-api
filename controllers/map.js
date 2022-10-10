@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 const Locations = require('../models/locations')
-const Places = require('../models/places')
+const Activities = require('../models/activities')
 
 // get ...
 router.get('/koh-phangan', async (req, res) => {
@@ -18,7 +18,7 @@ router.get('/koh-phangan', async (req, res) => {
   }
 })
 
-router.get('/koh-phangan/places', async (req, res) => {
+router.get('/koh-phangan/activities', async (req, res) => {
   // console.log('index get route')
   try {
 		// await Places.create({
@@ -31,9 +31,9 @@ router.get('/koh-phangan/places', async (req, res) => {
 		// })
 		// console.log('created');
 		// make this find by location (location and places joined through objectID)
-		let places = await Places.find({}) //!!!
+		let activities = await Activities.find({}) //!!!
 		// console.log(users[0].name)
-    res.send(places)
+    res.send(activities)
   } catch (err) {
     console.log(err)
 		res.send(err)
