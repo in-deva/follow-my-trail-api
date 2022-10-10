@@ -4,11 +4,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 // Model
 module.exports = mongoose.model('activities', {
+	title: {
+		type: String,
+		required: false
+	},
   category: {
-    type: String,
-    required: false
-  },
-  title: {
     type: String,
     required: false
   },

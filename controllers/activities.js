@@ -8,9 +8,8 @@ const Activities = require('../models/activities')
 // Routes
 router.post('/', async (req, res, next) => {
   try {
-    console.log('test')
-    console.log(req.target)
-		res.json(activity)
+		await Activities.create(req.body)
+		res.send('done')
   } catch (err) {
     next(err)
   }
