@@ -39,6 +39,7 @@ require('./express-sessions')(app)
 // Routes
 // main
 app.use('/', require('./controllers/index'))
+app.use('/activities', require('./controllers/activities'))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
