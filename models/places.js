@@ -28,7 +28,7 @@ module.exports = mongoose.model('places', {
 	location: {
 		type: ObjectId,
 		required: false,
-		ref: 'users'
+		ref: 'locations'
 	},
 	address: {
 		type: String,

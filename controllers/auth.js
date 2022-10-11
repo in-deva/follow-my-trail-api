@@ -75,5 +75,18 @@ router.post('/signup', async (req, res) => {
   }
 })
 
+// get ...
+router.get('/user', async (req, res) => {
+  console.log('index get route')
+  try {
+		let users = await Users.find({})
+		// console.log(users[0].name)
+    res.send(users[0])
+  } catch (err) {
+    console.log(err)
+		res.send(err)
+  }
+})
+
 // Export
 module.exports = router
