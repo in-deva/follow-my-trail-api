@@ -24,5 +24,12 @@ module.exports = mongoose.model('users', {
 	trips: {
 		type: [],
 		ref: 'locations'
-	}
-})
+	},
+	activities: {
+			likes: [],
+			dislikes: [],
+			been: []
+		},
+		required: false
+}
+)
