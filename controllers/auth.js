@@ -79,9 +79,9 @@ router.post('/signup', async (req, res) => {
 router.get('/user', async (req, res) => {
   console.log('index get route')
   try {
-		let users = await Users.find({})
+		let user = await Users.findById('633d29b6e4273dea88bda749')
 		// console.log(users[0].name)
-    res.send(users[0])
+    res.send(user)
   } catch (err) {
     console.log(err)
 		res.send(err)
