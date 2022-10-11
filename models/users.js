@@ -22,7 +22,7 @@ module.exports = mongoose.model('users', {
     required: true
   },
 	trips: {
-		type: [ObjectId],
+		type: [],
 		ref: 'locations'
 	}
 })

@@ -50,6 +50,8 @@ app.use('/map', require('./controllers/map'))
 app.use('/auth', require('./controllers/auth'))
 // create activity
 app.use('/activities', require('./controllers/activities'))
+// profile
+app.use('/profile', require('./controllers/profile'))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
