@@ -54,5 +54,14 @@ router.post('/categorise', async (req, res) => {
   }
 })
 
+router.post('/users-trip', async (req, res) => {
+  try {
+		let user = await Users.findById(req.body.userID)
+		res.send(user.activities)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 // Export
 module.exports = router
