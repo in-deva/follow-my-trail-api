@@ -52,6 +52,8 @@ app.use('/auth', require('./controllers/auth'))
 app.use('/activities', require('./controllers/activities'))
 // profile
 app.use('/profile', require('./controllers/profile'))
+// trips
+app.use('/discover', require('./controllers/discover'))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
